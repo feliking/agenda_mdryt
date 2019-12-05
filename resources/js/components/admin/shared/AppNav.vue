@@ -122,10 +122,10 @@ export default {
           { title: 'Perfil', icon: 'person', to: {name: 'profile'}, exact: false }
         ],
         [
-          { title: 'Personas', icon: 'person', to: {name: 'persona'}, exact: false }
+          { title: 'Sectores', icon: 'widgets', to: {name: 'sector'}, exact: false }
         ],
         [
-          { title: 'Departamentos', icon: 'map', to: {name: 'departamento'}, exact: false }
+          { title: 'Lugares', icon: 'beenhere', to: {name: 'lugar'}, exact: false }
         ],
         [
           { title: 'Salir', icon: 'power_settings_new', action: this.logout }

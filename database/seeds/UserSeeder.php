@@ -69,8 +69,5 @@ class UserSeeder extends Seeder
         ]);        
         $user_usuario->attachRole($role_usuario);
         $role_usuario->attachPermission($permission_listar);
-        $role_usuario->attachPermission($permission_registrar);
-        $role_usuario->attachPermission($permission_editar);
-        $role_usuario->attachPermission($permission_imprimir);
     }
 }

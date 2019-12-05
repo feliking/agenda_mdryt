@@ -22,41 +22,22 @@ Route::group(['middleware' => ['guest:api']], function() {
 });
 
 Route::group(['middleware' => ['jwt']], function() {
-    Route::post('logout', 'Auth\LoginController@logout');
-    Route::get('me', 'Auth\LoginController@me');
-    Route::put('profile', 'ProfileController@update');
+    Route::get('sector/fill/{params}', 'SectorController@fill')->middleware('permission:listar');
+    Route::get('sector', 'SectorController@index')->middleware('permission:listar');
+    Route::post('sector', 'SectorController@store')->middleware('permission:registrar');
+    Route::put('sector/{id}', 'SectorController@update')->middleware('permission:editar');
+    Route::delete('sector/{id}', 'SectorController@destroy')->middleware('permission:eliminar');
 
-    Route::apiResource('ciudad', 'CiudadController');
-    Route::get('ciudad/fill/{param}', 'CiudadController@fill');
+    Route::get('lugar/fill/{params}', 'LugarController@fill')->middleware('permission:listar');
+    Route::get('lugar', 'LugarController@index')->middleware('permission:listar');
+    Route::post('lugar', 'LugarController@store')->middleware('permission:registrar');
+    Route::put('lugar/{id}', 'LugarController@update')->middleware('permission:editar');
+    Route::delete('lugar/{id}', 'LugarController@destroy')->middleware('permission:eliminar');
 
-    Route::apiResource('persona', 'PersonaController');
-    Route::get('persona/fill/{param}', 'PersonaController@fill');
-
-    Route::apiResource('hobby', 'HobbyController');
-    Route::get('hobby/fill/{param}', 'HobbyController@fill');
-
-    Route::apiResource('habilidad', 'HabilidadController');
-    Route::get('habilidad/fill/{param}', 'HabilidadController@fill');
-
-    Route::apiResource('contacto', 'ContactoController');
-    Route::get('contacto/fill/{param}', 'ContactoController@fill');
-
-    Route::apiResource('formacion_academica', 'FormacionAcademicaaController');
-    Route::get('formacion_academica/fill/{param}', 'FormacionAcademicaaController@fill');
-
-    Route::apiResource('idioma', 'IdiomaController');
-    Route::get('idioma/fill/{param}', 'IdiomaController@fill');
-
-    Route::apiResource('referencia_laboral', 'ReferenciaLaboralController');
-    Route::get('referencia_laboral/fill/{param}', 'ReferenciaLaboralController@fill');
-
-    Route::apiResource('software_manipulable', 'SoftwareManipulableController');
-    Route::get('software_manipulable/fill/{param}', 'SoftwareManipulableController@fill');
-
-    Route::apiResource('experiencia_laboral', 'ExperienciaLaboralController');
-    Route::get('experiencia_laboral/fill/{param}', 'ExperienciaLaboralController@fill');
-
-    Route::apiResource('tarea_realizada', 'TareaRealizadaController');
-    Route::get('tarea_realizada/fill/{param}', 'TareaRealizadaController@fill');
+    Route::get('delegado/fill/{params}', 'DelegadoController@fill')->middleware('permission:listar');
+    Route::get('delegado', 'DelegadoController@index')->middleware('permission:listar');
+    Route::post('delegado', 'DelegadoController@store')->middleware('permission:registrar');
+    Route::put('delegado/{id}', 'DelegadoController@update')->middleware('permission:editar');
+    Route::delete('delegado/{id}', 'DelegadoController@destroy')->middleware('permission:eliminar');
 });
 
